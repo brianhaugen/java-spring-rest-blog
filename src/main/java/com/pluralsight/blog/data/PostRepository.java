@@ -14,19 +14,7 @@ import java.util.Optional;
 
 
 @Component
-public abstract class PostRepository implements JpaRepository<Post, Long> {
-
-
-    final PostRepository postRepository;
-
-    @Autowired
-    public PostRepository(PostRepository pr){
-        this.postRepository = pr;
-    }
-
+public interface PostRepository extends JpaRepository<Post, Long> {
     @RestResource(rel="contains-title", path="containsTitle")
-    public List<Post> findByTitleContaining(String title) {
-        return List<Post>;
-    }
+    List<Post> findByTitleContaining(String title);
 }
-
